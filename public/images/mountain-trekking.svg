@@ -1,0 +1,26 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081c15" />
+      <stop offset="50%" stop-color="#1b4332" />
+      <stop offset="100%" stop-color="#2d6a4f" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)" />
+
+  <!-- Mountain Silhouette -->
+  <path d="M 100 450 L 300 200 L 480 380 L 650 180 L 800 450 Z" fill="#112d22" stroke="#74c69d" stroke-width="4" />
+  <path d="M 300 200 L 260 250 L 340 250 Z" fill="#ffffff" opacity="0.8" />
+  <path d="M 650 180 L 610 230 L 690 230 Z" fill="#ffffff" opacity="0.8" />
+
+  <!-- Sun -->
+  <circle cx="650" cy="120" r="45" fill="#faedcd" opacity="0.9" />
+
+  <!-- Badge Text -->
+  <rect x="220" y="50" width="360" height="40" rx="20" fill="#081c15" stroke="#d4a373" stroke-width="2" />
+  <text x="400" y="75" font-family="sans-serif" font-size="13" font-weight="bold" fill="#d4a373" text-anchor="middle" letter-spacing="3">MAITHILI AGRO TOURISM</text>
+
+  <text x="400" y="500" font-family="serif" font-size="34" font-weight="bold" fill="#ffffff" text-anchor="middle">Nature Trail &amp; Mountain Trekking</text>
+  <text x="400" y="535" font-family="sans-serif" font-size="15" fill="#74c69d" text-anchor="middle">Sahyadri Mountain Scenic Exploration</text>
+</svg>

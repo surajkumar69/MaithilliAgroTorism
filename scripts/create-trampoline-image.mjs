@@ -1,0 +1,43 @@
+import fs from 'fs';
+import path from 'path';
+
+// Create a clean, elegant SVG placeholder for Trampoline Fun Zone
+const svgContent = `<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081c15" />
+      <stop offset="50%" stop-color="#1b4332" />
+      <stop offset="100%" stop-color="#2d6a4f" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#52b788" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#081c15" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)" />
+  <circle cx="400" cy="300" r="300" fill="url(#glow)" />
+
+  <!-- Trampoline Graphic Icon -->
+  <ellipse cx="400" cy="340" rx="200" ry="60" fill="none" stroke="#d4a373" stroke-width="6" stroke-dasharray="12 6" />
+  <ellipse cx="400" cy="340" rx="160" ry="48" fill="#112d22" stroke="#52b788" stroke-width="4" />
+  
+  <!-- Trampoline Legs -->
+  <path d="M 220 340 L 200 440 M 580 340 L 600 440 M 310 390 L 300 450 M 490 390 L 500 450" stroke="#d4a373" stroke-width="5" stroke-linecap="round" />
+
+  <!-- Bounce Sparkles -->
+  <path d="M 400 240 L 400 210 M 370 230 L 350 210 M 430 230 L 450 210" stroke="#52b788" stroke-width="4" stroke-linecap="round" />
+  <circle cx="400" cy="190" r="8" fill="#d4a373" />
+
+  <!-- Text Badge -->
+  <rect x="220" y="80" width="360" height="40" rx="20" fill="#081c15" stroke="#d4a373" stroke-width="2" />
+  <text x="400" y="105" font-family="sans-serif" font-size="14" font-weight="bold" fill="#d4a373" text-anchor="middle" letter-spacing="3">MAITHILI AGRO TOURISM</text>
+
+  <text x="400" y="490" font-family="serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle">Trampoline Fun Zone</text>
+  <text x="400" y="525" font-family="sans-serif" font-size="14" fill="#9bc9b3" text-anchor="middle">Safe Bouncing Experience for Kids &amp; Youth</text>
+</svg>`;
+
+const targetSvgPath = path.join(process.cwd(), 'public', 'images', 'trampoline-zone.svg');
+fs.writeFileSync(targetSvgPath, svgContent);
+console.log('Created trampoline-zone.svg!');
