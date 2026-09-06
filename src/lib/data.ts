@@ -2,10 +2,10 @@ import { Accommodation, Activity, Amenity, ContactInfo, EventPackage, GalleryIte
 
 export const CONTACT_INFO: ContactInfo = {
   businessName: 'Maithili Agro Tourism',
-  phones: ['9156374545', '9922426054'],
+  phones: ['9156374545', '9175684545'],
   email: 'maithiliagro@gmail.com',
   address: 'Gat No 736, At Ambegaon, Post Urawade, Taluka Mulshi, District Pune 412115',
-  googleMapsUrl: 'https://maps.app.goo.gl/GQiJxC5xAR6WnHoK8?g_st=iwb',
+  googleMapsUrl: 'https://maps.app.goo.gl/en3roxQ2zwdvxCa37?g_st=ac',
   googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.5!2d73.6!3d18.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMwJzAwLjAiTiA3M8KwMzYnMDAuMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin',
   whatsappNumber: '919156374545',
 };

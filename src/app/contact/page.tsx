@@ -346,7 +346,7 @@ export default function ContactPage() {
           </div>
           <div className="relative h-96 w-full rounded-2xl overflow-hidden border border-earth-200">
             <iframe
-              src="https://maps.google.com/maps?q=18.5000,73.6000&hl=en&z=14&output=embed"
+              src="https://maps.google.com/maps?q=Maithili+Agro+Tourism,+Mulshi,+Paud,+Maharashtra+412108&hl=en&z=14&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

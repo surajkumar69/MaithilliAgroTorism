@@ -13,7 +13,7 @@ async function seed() {
   await db.insert(siteSettings).values({
     businessName: 'Maithili Agro Tourism',
     phone: '9156374545',
-    phoneAlt: '9922426054',
+    phoneAlt: '9175684545',
     whatsappNumber: '9156374545', // Defaulting to first, adjust later based on feedback
     email: 'maithiliagro@gmail.com',
     address: 'Gat No 736, At Ambegaon, Post Urawade, Tal. Mulshi, Dist. Pune 412115',

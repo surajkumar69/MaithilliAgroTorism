@@ -63,7 +63,7 @@ export default function RootLayout({
               '@type': 'Resort',
               name: 'Maithili Agro Tourism',
               image: 'https://maithiliagrotourism.com/images/hero-resort.jpeg',
-              telephone: ['9156374545', '9922426054'],
+              telephone: ['9156374545', '9175684545'],
               email: 'maithiliagro@gmail.com',
               address: {
                 '@type': 'PostalAddress',
@@ -73,7 +73,7 @@ export default function RootLayout({
                 postalCode: '412115',
                 addressCountry: 'IN',
               },
-              hasMap: 'https://maps.app.goo.gl/GQiJxC5xAR6WnHoK8?g_st=iwb',
+              hasMap: 'https://maps.app.goo.gl/en3roxQ2zwdvxCa37?g_st=ac',
               priceRange: '₹₹',
               amenityFeature: [
                 { '@type': 'LocationFeatureSpecification', name: 'Swimming Pool' },
