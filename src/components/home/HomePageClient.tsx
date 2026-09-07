@@ -22,9 +22,11 @@ interface HomePageClientProps {
   packages: any[];
   stays: any[];
   quickFacts: any;
+  sectionImages: Record<string, string>;
+  gallery: any[];
 }
 
-export function HomePageClient({ settings, attractions, packages, stays, quickFacts }: HomePageClientProps) {
+export function HomePageClient({ settings, attractions, packages, stays, quickFacts, sectionImages, gallery }: HomePageClientProps) {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selectedAccommodation, setSelectedAccommodation] = useState('Luxury Mountain View Rooms');
 
@@ -45,21 +47,28 @@ export function HomePageClient({ settings, attractions, packages, stays, quickFa
     price: `₹${stay.pricePerNightInr} / Night`,
     capacity: stay.maxOccupancy ? `${stay.maxOccupancy} Adults` : '2 Adults',
     features: Array.isArray(stay.amenities) ? stay.amenities : ['AC', 'Attached Washroom', 'Mountain View'],
-    image: stay.coverMediaId || '/images/luxury-room.jpeg',
-    imageUrl: stay.coverMediaId || '/images/luxury-room.jpeg',
+    image: stay.mainImageUrl || '/images/luxury-room.jpeg',
+    imageUrl: stay.mainImageUrl || '/images/luxury-room.jpeg',
     isPopular: false,
   }));
 
-  // Use INITIAL_ACTIVITIES directly for 100% exact image-to-heading mapping across all 13 resort experiences
-  const mappedExperiences = INITIAL_ACTIVITIES;
+  // Map DB attractions to override INITIAL_ACTIVITIES images
+  const mappedExperiences = INITIAL_ACTIVITIES.map(activity => {
+    // try to find a matching attraction by slug or title
+    const dbAttr = attractions.find(a => a.name === activity.title || a.slug === activity.slug);
+    if (dbAttr && dbAttr.mainImageUrl) {
+      return { ...activity, imageUrl: dbAttr.mainImageUrl };
+    }
+    return activity;
+  });
 
   return (
     <>
       {/* 1. HERO SECTION */}
-      <Hero settings={settings} onOpenBooking={handleOpenBooking} />
+      <Hero settings={settings} onOpenBooking={handleOpenBooking} image={sectionImages.hero} />
 
       {/* 2. INTRODUCTION SECTION */}
-      <Intro />
+      <Intro image={sectionImages.about} />
 
       {/* 3. STAY / ACCOMMODATION SECTION */}
       <StaySection accommodations={mappedStays} onOpenBooking={handleOpenBooking} />
@@ -67,14 +76,14 @@ export function HomePageClient({ settings, attractions, packages, stays, quickFa
       {/* 4. EXPERIENCES & ACTIVITIES SECTION */}
       <ExperiencesSection activities={mappedExperiences} />
 
-      {/* 5. BANQUET & EVENTS SECTION */}
-      <BanquetSection onOpenBooking={handleOpenBooking} />
+      {/* 5. BANQUET / EVENTS SECTION */}
+      <BanquetSection image={sectionImages.banquet} onOpenBooking={handleOpenBooking} />
 
       {/* 6. RESTAURANT SECTION */}
-      <RestaurantSection />
+      <RestaurantSection image={sectionImages.restaurant} />
 
-      {/* 7. 360° MOUNTAIN VIEW SECTION */}
-      <MountainViewSection onOpenBooking={handleOpenBooking} />
+      {/* 7. MOUNTAIN VIEW SECTION */}
+      <MountainViewSection image={sectionImages.mountain_view} onOpenBooking={handleOpenBooking} />
 
       {/* 8. WHY CHOOSE US SECTION */}
       <WhyChooseUs />
@@ -83,7 +92,7 @@ export function HomePageClient({ settings, attractions, packages, stays, quickFa
       <StatsSection />
 
       {/* 10. FEATURED EXPERIENCES / GALLERY */}
-      <GalleryPreview />
+      <GalleryPreview gallery={gallery.length > 0 ? gallery : undefined} />
 
       {/* 11. SIMPLE BOOKING / ENQUIRY PROCESS */}
       <BookingProcess />

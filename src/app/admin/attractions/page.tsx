@@ -27,8 +27,8 @@ export default async function AttractionsAdmin() {
         {allAttractions.map((attr) => (
           <Card key={attr.id} className="overflow-hidden flex flex-col">
             <div className="h-40 bg-earth-200 flex items-center justify-center text-forest-500 relative">
-              {attr.coverMediaId ? (
-                <span className="text-xs">Media: {attr.coverMediaId}</span>
+              {attr.mainImageUrl ? (
+                <span className="text-xs">Media: {attr.mainImageUrl}</span>
               ) : (
                 <span>No Image</span>
               )}

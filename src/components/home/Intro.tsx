@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Trees, Sun, CheckCircle2, ArrowRight } from 'lucide-react';
 import { SECTION_IMAGES } from '@/lib/data';
 
-export const Intro: React.FC = () => {
+export const Intro: React.FC<{ image?: string }> = ({ image }) => {
   return (
     <section className="py-20 bg-earth-50 text-forest-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +17,7 @@ export const Intro: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-card border-4 border-white">
               <div className="relative h-[380px] sm:h-[450px] w-full">
                 <Image
-                  src={SECTION_IMAGES.intro}
+                  src={image || SECTION_IMAGES.intro}
                   alt="Maithili Agro Tourism Resort Night Ambiance"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"

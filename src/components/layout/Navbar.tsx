@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Trees, Menu, X, Phone, MessageSquare, Calendar } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/data';
@@ -91,8 +92,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo on Left */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-forest-700 border-2 border-accent-gold/60 flex items-center justify-center text-accent-gold group-hover:scale-105 transition-transform">
-              <Trees className="w-6 h-6 md:w-7 md:h-7 text-accent-leaf" />
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center border-2 border-accent-gold/60 group-hover:scale-105 transition-transform p-1">
+              <Image src="/images/logo.png" alt="Maithili Logo" fill className="object-contain p-1" />
             </div>
             <div>
               <span className="block font-serif text-xl md:text-2xl font-bold tracking-wide text-white group-hover:text-accent-gold transition-colors">
@@ -174,7 +175,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-6 border-b border-forest-800">
                 <div className="flex items-center space-x-2">
-                  <Trees className="w-6 h-6 text-accent-leaf" />
+                  <div className="relative w-8 h-8 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden">
+                    <Image src="/images/logo.png" alt="Maithili Logo" fill className="object-contain p-0.5" />
+                  </div>
                   <span className="font-serif text-lg font-bold text-white">Maithili Agro</span>
                 </div>
                 <button

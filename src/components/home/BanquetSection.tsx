@@ -2,14 +2,15 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { PartyPopper, Calendar, CheckCircle2 } from 'lucide-react';
+import { PartyPopper, Calendar } from 'lucide-react';
 import { INITIAL_EVENTS } from '@/lib/data';
 
 interface BanquetSectionProps {
   onOpenBooking: (eventTitle?: string) => void;
+  image?: string;
 }
 
-export const BanquetSection: React.FC<BanquetSectionProps> = ({ onOpenBooking }) => {
+export const BanquetSection: React.FC<BanquetSectionProps> = ({ onOpenBooking, image }) => {
   return (
     <section className="py-20 bg-forest-950 text-white relative overflow-hidden border-t border-forest-800/60">
       {/* Background Lighting */}
@@ -41,7 +42,7 @@ export const BanquetSection: React.FC<BanquetSectionProps> = ({ onOpenBooking })
           {/* Left Column: Image */}
           <div className="lg:col-span-7 relative rounded-2xl overflow-hidden shadow-lg border border-forest-700 h-80 sm:h-96">
             <Image
-              src="/images/event-lawn-cottages.jpeg"
+              src={image || "/images/event-lawn-cottages.jpeg"}
               alt="Maithili Agro Tourism Grand Event Hall & Open Air Lawns"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"

@@ -65,10 +65,18 @@ export const mediaLinks = pgTable('media_links', {
 
 export const galleryItems = pgTable('gallery_items', {
   id: serial('id').primaryKey(),
-  mediaId: integer('media_id').notNull(),
-  album: varchar('album', { length: 255 }),
+  imageUrl: text('image_url').notNull(),
+  title: varchar('title', { length: 255 }),
+  category: varchar('category', { length: 255 }),
   sortOrder: integer('sort_order').default(0).notNull(),
   isPublished: boolean('is_published').default(true).notNull(),
+});
+
+export const sectionImages = pgTable('section_images', {
+  id: serial('id').primaryKey(),
+  sectionKey: varchar('section_key', { length: 255 }).notNull().unique(), // 'hero', 'about', 'banquet', 'restaurant', 'mountain_view', 'final_cta', etc.
+  imageUrl: text('image_url').notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
 export const contentBlocks = pgTable('content_blocks', {
@@ -159,7 +167,8 @@ export const stays = pgTable('stays', {
   exclusions: jsonb('exclusions'),
   terms: jsonb('terms'),
   faqs: jsonb('faqs'),
-  coverMediaId: integer('cover_media_id'),
+  mainImageUrl: text('main_image_url'),
+  additionalImagesUrls: jsonb('additional_images_urls').default([]),
   sortOrder: integer('sort_order').default(0).notNull(),
   isPublished: boolean('is_published').default(false).notNull(),
   seoTitle: text('seo_title'),
@@ -191,7 +200,8 @@ export const packages = pgTable('packages', {
   exclusions: jsonb('exclusions'),
   terms: jsonb('terms'),
   faqs: jsonb('faqs'),
-  coverMediaId: integer('cover_media_id'),
+  mainImageUrl: text('main_image_url'),
+  additionalImagesUrls: jsonb('additional_images_urls').default([]),
   sortOrder: integer('sort_order').default(0).notNull(),
   isPublished: boolean('is_published').default(false).notNull(),
   seoTitle: text('seo_title'),
@@ -224,7 +234,8 @@ export const attractions = pgTable('attractions', {
   exclusions: jsonb('exclusions'),
   terms: jsonb('terms'),
   faqs: jsonb('faqs'),
-  coverMediaId: integer('cover_media_id'),
+  mainImageUrl: text('main_image_url'),
+  additionalImagesUrls: jsonb('additional_images_urls').default([]),
   sortOrder: integer('sort_order').default(0).notNull(),
   isPublished: boolean('is_published').default(false).notNull(),
   seoTitle: text('seo_title'),

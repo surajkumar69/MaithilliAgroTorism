@@ -12,9 +12,10 @@ import { MediaFrame } from '../ui/MediaFrame';
 interface HeroProps {
   settings: any;
   onOpenBooking: () => void;
+  image: string;
 }
 
-export const Hero: React.FC<HeroProps> = ({ settings, onOpenBooking }) => {
+export function Hero({ settings, onOpenBooking, image }: HeroProps) {
   return (
     <section className="relative bg-forest-950 text-white min-h-[90vh] flex flex-col justify-between overflow-hidden">
       {/* Background Scenic Hero Image with Gradient Overlays */}
@@ -23,7 +24,7 @@ export const Hero: React.FC<HeroProps> = ({ settings, onOpenBooking }) => {
           <VideoFrame src={settings.heroMediaId} className="w-full h-full opacity-40 scale-105" />
         ) : (
           <Image
-            src={SECTION_IMAGES.hero}
+            src={image || SECTION_IMAGES.hero}
             alt={settings.businessName || "Resort"}
             fill
             priority

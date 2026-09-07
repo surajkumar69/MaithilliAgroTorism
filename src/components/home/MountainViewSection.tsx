@@ -6,15 +6,16 @@ import { Mountain, Calendar, Compass } from 'lucide-react';
 
 interface MountainViewSectionProps {
   onOpenBooking: () => void;
+  image?: string;
 }
 
-export const MountainViewSection: React.FC<MountainViewSectionProps> = ({ onOpenBooking }) => {
+export const MountainViewSection: React.FC<MountainViewSectionProps> = ({ onOpenBooking, image }) => {
   return (
     <section className="relative py-28 bg-forest-950 text-white overflow-hidden">
       {/* Full-width Panoramic Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/mountain-balcony.jpeg"
+          src={image || "/images/mountain-balcony.jpeg"}
           alt="360 Sahyadri Mountain View"
           fill
           className="object-cover object-center opacity-30 scale-105"

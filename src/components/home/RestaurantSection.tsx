@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Utensils, Sparkles, ArrowRight, Flame } from 'lucide-react';
 import { SECTION_IMAGES } from '@/lib/data';
 
-export const RestaurantSection: React.FC = () => {
+export const RestaurantSection: React.FC<{ image?: string }> = ({ image }) => {
   return (
     <section className="py-20 bg-earth-50 text-forest-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export const RestaurantSection: React.FC = () => {
             <div className="space-y-4">
               <div className="relative h-64 rounded-3xl overflow-hidden shadow-card border-2 border-white">
                 <Image
-                  src={SECTION_IMAGES.restaurant}
+                  src={image || SECTION_IMAGES.restaurant}
                   alt="Resort Dining Area"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"

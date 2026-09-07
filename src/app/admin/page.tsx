@@ -200,39 +200,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-earth-50 text-forest-900 flex flex-col">
-      {/* Top Admin Header */}
-      <header className="bg-forest-950 text-white border-b border-forest-800 px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <Trees className="w-6 h-6 text-accent-leaf" />
-          <span className="font-serif text-xl font-bold text-white">
-            Maithili Agro Admin CMS
-          </span>
-        </div>
-
-        <div className="flex items-center space-x-4">
-          <div
-            className={`px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1.5 border ${
-              isSupabaseConfigured()
-                ? 'bg-emerald-950 border-emerald-800 text-emerald-400'
-                : 'bg-amber-950 border-amber-800 text-amber-300'
-            }`}
-          >
-            <Database className="w-3.5 h-3.5" />
-            <span>
-              {isSupabaseConfigured() ? 'Supabase Live DB Connected' : 'Local Fallback State'}
-            </span>
-          </div>
-
-          <button
-            onClick={handleLogout}
-            className="text-xs text-earth-300 hover:text-white flex items-center space-x-1 bg-forest-900 px-3 py-1.5 rounded-lg border border-forest-800"
-          >
-            <LogOut className="w-3.5 h-3.5" />
-            <span>Logout</span>
-          </button>
-        </div>
-      </header>
+    <div className="w-full">
 
       {/* Main Admin Area */}
       <div className="flex-1 max-w-7xl w-full mx-auto p-6 md:p-8 space-y-6">

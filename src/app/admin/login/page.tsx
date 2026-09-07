@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { Trees, Lock, Mail, KeyRound, AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -55,8 +56,8 @@ export default function AdminLoginPage() {
         
         {/* Branding & Header */}
         <div className="text-center space-y-3">
-          <div className="w-16 h-16 rounded-2xl bg-forest-900 border border-forest-800 flex items-center justify-center text-accent-leaf mx-auto shadow-xl">
-            <Trees className="w-8 h-8 text-accent-gold" />
+          <div className="relative w-16 h-16 rounded-2xl bg-white border border-forest-800 flex items-center justify-center mx-auto shadow-xl overflow-hidden p-1.5">
+            <Image src="/images/logo.png" alt="Maithili Logo" fill className="object-contain p-1.5" />
           </div>
           <div className="space-y-1">
             <h1 className="font-serif text-3xl font-bold text-white tracking-tight">

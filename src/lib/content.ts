@@ -77,3 +77,25 @@ export async function getContentBlock(key: string) {
   // @ts-ignore
   return fallbackContentBlocks[key] || {};
 }
+
+import { sectionImages, galleryItems } from '@/db/schema';
+export async function getSectionImagesMap() {
+  const map: Record<string, string> = { hero: '/images/hero-resort.jpeg', about: '/images/night-resort.jpeg', mountain_view: '/images/mountain-balcony.jpeg', banquet: '/images/event-lawn-cottages.jpeg', restaurant: '/images/dining-area.jpeg', final_cta: '/images/gallery-whatsapp-1.jpeg' };
+  try {
+    const res = await db.select().from(sectionImages);
+    res.forEach(item => { map[item.sectionKey] = item.imageUrl; });
+  } catch (error) {
+    console.error('Failed to fetch section images', error);
+  }
+  return map;
+}
+
+export async function getGallery() {
+  try {
+    const res = await db.select().from(galleryItems).orderBy(galleryItems.sortOrder);
+    if (res.length > 0) return res;
+  } catch (error) {
+    console.error('Failed to fetch gallery', error);
+  }
+  return [];
+}
